@@ -13,20 +13,20 @@ var orm = {
       callback(result);
     });
   },
-  insertOne: function(burger, callback) {
+  insertOne: function(burgerName, callback) {
     var queryString = "INSERT INTO " + tableName + " (burger_name, devoured) VALUES (?,?)";
-    burger.devoured = burger.devoured || 0;
-    connection.query(queryString, [burger.burger_name, burger.devoured], function(err, result) {
+    burgerName.devoured = burgerName.devoured || 0;
+    connection.query(queryString, [burgerName.burger_name, burgerName.devoured], function(err, result) {
       if (err) {
         throw err;
       }
       callback(result);
     });
   },
-  updateOne: function(burger, callback) {
+  updateOne: function(burgerName, callback) {
     var queryString = "UPDATE " + tableName + " SET devoured = ? WHERE id = ?";
-    burger.devoured = 1;
-    connection.query(queryString, [burger.devoured, burger.id], function(err, result) {
+    burgerName.devoured = 1;
+    connection.query(queryString, [burgerName.devoured, burgerName.id], function(err, result) {
       if (err) {
         throw err;
       }
