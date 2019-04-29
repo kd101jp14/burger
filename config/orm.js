@@ -21,6 +21,17 @@ var orm = {
       }
       callback(result);
     });
+  },
+  updateOne: function(req, res, callback) {
+    var queryString = "UPDATE burgers_db SET ? WHERE ?";
+    var values = [{burger_name: req.body.burger_name}, { devoured: req.body.devoured}];
+
+    connection.query(queryString, values, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      callback(result);
+    });
   }
 };
 
