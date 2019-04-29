@@ -13,7 +13,7 @@ var orm = {
       callback(result);
     });
   },
-  insertOne: function(req, res, callback) {
+  insertOne: function(burgerName, callback) {
     var queryString = "INSERT INTO " + tableName + " (burger_name, devoured) VALUES (?,?)";
     var values = { burger_name: req.body.burger_name, devoured: false };
 
@@ -24,7 +24,7 @@ var orm = {
       callback(result);
     });
   },
-  updateOne: function(req, res, callback) {
+  updateOne: function(ifDevoured, burgerName, callback) {
     var queryString = "UPDATE " + tableName + " SET ? WHERE ?";
     var values = [{devoured: req.body.devoured}, {burger_name: req.body.burger_name}];
 
