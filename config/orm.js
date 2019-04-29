@@ -15,20 +15,17 @@ var orm = {
   },
   insertOne: function(burgerName, callback) {
     var queryString = "INSERT INTO " + tableName + " (burger_name, devoured) VALUES (?,?)";
-    var values = { burger_name: req.body.burger_name, devoured: false };
-
-    connection.query(queryString, values, function(err, result) {
+    connection.query(queryString, [burgerName, false], function(err, result) {
       if (err) {
         throw err;
       }
       callback(result);
     });
   },
-  updateOne: function(ifDevoured, burgerName, callback) {
-    var queryString = "UPDATE " + tableName + " SET ? WHERE ?";
-    var values = [{devoured: req.body.devoured}, {burger_name: req.body.burger_name}];
+  updateOne: function(burgerName, callback) {
+    var queryString = "UPDATE " + tableName + " SET devoured = ? WHERE burger_name = ?";
 
-    connection.query(queryString, values, function(err, result) {
+    connection.query(queryString, [true, burgerName], function(err, result) {
       if (err) {
         throw err;
       }
