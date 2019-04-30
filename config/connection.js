@@ -1,5 +1,5 @@
 var mysql = require("mysql");
-var passwordModule = require("./password_module.js");
+var passwordModule = require("../password_module.js");
 
 var connection = mysql.createConnection({
   host: "localhost",
