@@ -1,31 +1,67 @@
-<h1>Eat-Da-Burger!</h1>
-
-<h2>Burgers to Devour</h2>
-<ol>
-    {{#each burgers}}
-        {{#unless devoured}}
-            {{> burgers/burger-block devour=true}}
-        {{/unless}}
-    {{/each}}
-</ol>
-
-<h2>Devoured Burgers</h2>
-<ol>
-  {{#each burgers}}
-    {{#if devoured}}
-        {{> burgers/burger-block devour=false}}   
-    {{/if}}
-  {{/each}}
-</ol>
-
-<h2>Add a burger!</h2>
-<form class="create-form">
-    
-  <div class="form-group">
-    <label for="newBurger">Burger Name:</label>
-    <input type="text" id="newBurger" name="burger_name">
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <div class="card text-white bg-dark mb-3 mx-auto" style="max-width: 18rem;">
+        <h1 class="card-title">Eat-Da-Burger!</h1>
+        <p class="card-text">You know you want to.</p>
+      </div>
+    </div>
   </div>
 
-  <button type="submit">Add Burger</button>
-</form>
+  <div class="row">
+    <div class="col-sm">
+      <div class="card text-white bg-warning mb-3 mx-auto" style="max-width: 18rem;">
+        <div class="card-header">Add a burger!</div>
+        <div class="card-body">
+          <form class="create-form">
 
+            <div class="form-group">
+              <label for="newBurger">Burger Name:</label>
+              <input type="text" id="newBurger" name="burger_name">
+            </div>
+
+            <br>
+
+            <div class="form-group">
+              <label for="devoured">Has this burger been devoured?</label><br>
+              <input type="radio" name="devoured" value="0" checked> Not yet!!<br>
+              <input type="radio" name="devoured" value="1"> Yes, I ate it already.
+            </div>
+
+            <button type="submit">Add Burger</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm">
+      <div class="card text-white bg-danger mb-3 mx-auto" style="max-width: 18rem;">
+        <div class="card-header">Burgers to Devour</div>
+        <div class="card-body">
+          <ol>
+            {{#each burgers}}
+            {{#unless devoured}}
+            {{> burgers/burger-block devour=true}}
+            {{/unless}}
+            {{/each}}
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm">
+      <div class="card text-white bg-success mb-3 mx-auto" style="max-width: 18rem;">
+        <div class="card-header">Devoured Burgers</div>
+        <div class="card-body">
+          <ol>
+            {{#each burgers}}
+            {{#if devoured}}
+            {{> burgers/burger-block devour=false}}
+            {{/if}}
+            {{/each}}
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
