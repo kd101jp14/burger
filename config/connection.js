@@ -1,9 +1,6 @@
 // Require MySQL
 var mysql = require("mysql");
 
-// Require sercret password
-var passwordModule = require("../password_module.js");
-
 var connection;
 
 // Hook up app with JawsDB or set up MySQL connection
@@ -14,7 +11,7 @@ if (process.env.JAWSDB_URL) {
     host: "localhost",
     port: 3306,
     user: "root",
-    password: passwordModule.password,
+    password: "",
     database: "burgers_db"
   });
 };
