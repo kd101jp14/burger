@@ -1,0 +1,17 @@
+body {
+    background-image: url(https://jooinn.com/images/wood-103.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+}
+
+h1,
+p {
+    text-align: center;
+}
